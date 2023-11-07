@@ -1,1 +1,1 @@
-# inventory-manager-mobile
+# inventory_manager_mobile
