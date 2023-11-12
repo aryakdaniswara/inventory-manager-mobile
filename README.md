@@ -180,20 +180,21 @@ Presentation Layer bergantung pada Domain Layer untuk aturan bisnis dan entitasn
 
 ### Implementasi Checklist:
 - Menambah Halaman Baru:
-Menggunakan Navigator.push() untuk menambahkan halaman formulir tambah item baru.
+  - Menggunakan Navigator.push() untuk menambahkan halaman formulir tambah item baru.
 - Validasi Input pada Formulir:
-Menggunakan TextFormField untuk setiap elemen input.
-Menambahkan validasi agar tidak boleh kosong.
+  - Menggunakan TextFormField untuk setiap elemen input.
+  - Menambahkan validasi agar tidak boleh kosong.
 - Navigasi ke Halaman Formulir Baru:
-Menambahkan tombol "Tambah Item" pada halaman utama dengan Navigator.push().
+  - Menambahkan tombol "Tambah Item" pada halaman utama dengan Navigator.push().
 - Popup Setelah Menekan Tombol Save:
-Menggunakan showDialog untuk menampilkan data yang diisi pada formulir.
+  - Menggunakan showDialog untuk menampilkan data yang diisi pada formulir.
 - Membuat Drawer:
-Menambahkan Drawer dengan dua opsi: "Halaman Utama" dan "Tambah Item".
+  - Menambahkan Drawer dengan dua opsi: "Halaman Utama" dan "Tambah Item".
 - Menambah Halaman Lihat Produk (Bonus):
-Membuat list untuk penyimpanan
-Membuat halaman baru untuk menampilkan daftar item yang sudah dibuat.
-Menambah tombol "Lihat Produk" pada halaman utama atau drawer untuk mengarahkan pengguna ke halaman tersebut.
-Menambahkan ke drawer
+  - Membuat list untuk penyimpanan
+  - Implementasi penyimpanan data pada form
+  - Membuat halaman baru untuk menampilkan daftar item yang sudah dibuat.
+  - Menambah tombol "Lihat Produk" pada halaman utama atau drawer untuk mengarahkan pengguna ke halaman tersebut.
+  - Menambahkan ke drawer
 - Mengarahkan pengguna ke halaman tersebut jika menekan tombol Lihat Item pada halaman utama atau drawer
-Menggunakan  Navigator.push untuk navigasi pengguna jika tombol yang ditekan Lihat Item
+  - Menggunakan  Navigator.push untuk navigasi pengguna jika tombol yang ditekan Lihat Item
