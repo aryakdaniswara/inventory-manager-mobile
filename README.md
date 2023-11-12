@@ -37,3 +37,163 @@ Kelas baru lainnya yang bersifat stateless, yaitu ShopCard, juga dibuat. Kelas i
 Kembali ke MyHomePage, saya membuat class field bernama items yang berisi struktur data List dengan objek-objek ShopItem. Dalam method build, GridView digunakan untuk menata setiap objek tombol pada list items.
 
 Ketika tombol ditekan, SnackBar akan muncul dengan tulisan yang sesuai dengan tombol yang ditekan. Pada kelas ShopCard, child parameter dari object Material dibuat sebuah object InkWell yang memberikan animasi ketika tombol ditekan. Parameter onTap dari object InkWell mengatur apa yang terjadi bila tombol ditekan. Pada parameter tersebut, method dari kelas ScaffoldMessenger dipanggil untuk menyembunyikan SnackBar ketika tidak ditekan selama beberapa waktu dan menampilkan SnackBar. Pada method showSnackBar, dibuat object SnackBar yang diisikan dengan parameter content. Parameter ini merupakan tempat teks apa yang kita ingin tampilkan pada SnackBar. Untuk membedakan teks antar tombol, kelas ShopCard menginisasi field ShopItem yang dinamakan item untuk kemudian diambil nama dari setiap item yang akan ditampilkan pada SnackBar.
+
+---
+
+### Perbedaan antara Navigator.push() dan Navigator.pushReplacement()
+- Navigator.push():
+  - Penjelasan: Digunakan untuk menambahkan halaman baru ke tumpukan navigasi.
+  - Contoh Penggunaan:
+    ```
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => NewPage()),
+    );
+    ```
+- Navigator.pushReplacement():
+  - Penjelasan: Digunakan untuk menggantikan halaman saat ini dengan halaman baru pada tumpukan navigasi.
+  - Contoh Penggunaan:
+    ```
+    Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(builder: (context) => NewPage()),
+    );
+    ```
+### Layout Widgets pada Flutter
+- Drawer:
+  - Penjelasan: Digunakan untuk menampilkan menu navigasi samping (drawer) pada aplikasi.
+  - Contoh Penggunaan: Menyediakan akses cepat ke berbagai fitur atau halaman dalam aplikasi.
+  - Konteks Penggunaan: Digunakan untuk menyimpan opsi navigasi dan akses cepat.
+
+- DrawerHeader:
+  - Penjelasan: Bagian atas drawer yang menyediakan ruang untuk judul atau elemen kustom.
+  - Contoh Penggunaan: Menyajikan informasi penting atau merek aplikasi.
+  - Konteks Penggunaan: Biasanya digunakan untuk menampilkan nama aplikasi dan slogan.
+
+- ListTile:
+  - Penjelasan: Widget yang mengandung satu baris teks atau elemen lainnya yang dapat diklik.
+  - Contoh Penggunaan: Merepresentasikan opsi atau item dalam menu.
+  - Konteks Penggunaan: Menavigasi ke halaman atau menjalankan aksi terkait saat diklik.
+
+- Icon:
+  - Penjelasan: Widget yang menampilkan ikon berbasis ikon Material Design.
+  - Contoh Penggunaan: Memberikan ikon visual yang merepresentasikan fungsi atau kategori.
+  - Konteks Penggunaan: Digunakan dalam ListTile untuk menambahkan ikon pada setiap opsi menu.
+
+- Padding:
+  - Penjelasan: Menambahkan padding (ruang putih) di sekitar widget tertentu.
+  - Contoh Penggunaan:
+Memberikan jarak atau ruang putih antara elemen-elemen.
+  - Konteks Penggunaan:
+Digunakan untuk meningkatkan estetika dan kejelasan tata letak.
+
+- Text:
+  - Penjelasan: Menampilkan teks.
+  - Contoh Penggunaan:
+Menyajikan teks informatif atau deskriptif.
+  - Konteks Penggunaan:
+Digunakan untuk menampilkan judul, slogan, atau teks informatif dalam drawer.
+
+- Container:
+  - Penjelasan: Digunakan untuk mengelompokkan dan mengatur widget lain dalam suatu wadah.
+  - Contoh Penggunaan:
+Menyusun widget-widget dengan padding, margin, dan dekorasi tertentu.
+  - Konteks Penggunaan:
+Memuat widget-widget dengan penataan dan dekorasi spesifik.
+
+- Column:
+  - Penjelasan: Mengatur widget dalam kolom vertikal.
+  - Contoh Penggunaan:
+Menata widget-widget secara vertikal di dalam satu kolom.
+  - Konteks Penggunaan:
+Digunakan untuk menyusun widget secara vertikal, seperti daftar atau formulir.
+
+- Row:
+  - Penjelasan: Mengatur widget dalam baris horizontal.
+  - Contoh Penggunaan:
+Menyusun widget-widget secara horizontal di dalam satu baris.
+  - Konteks Penggunaan:
+Berguna untuk menyusun widget secara horizontal, misalnya, tombol atau ikon.
+
+- ListView:
+  - Penjelasan: Mengatur widget dalam daftar bergulir.
+  - Contoh Penggunaan:
+Menampilkan daftar item dengan banyak data.
+  - Konteks Penggunaan:
+Cocok untuk menampilkan daftar data yang memerlukan pengguliran, seperti daftar kontak atau pesan.
+
+### Elemen Input pada Formulir dan Alasan Penggunaannya:
+
+- TextFormField:
+  - Penjelasan: Digunakan untuk mendapatkan input teks dari pengguna.
+  - Alasan Penggunaan: Cocok untuk input teks seperti nama, deskripsi, dan sebagainya.
+
+- ElevatedButton:
+  - Penjelasan: Digunakan untuk menambahkan tombol di atas permukaan material.
+  - Alasan Penggunaan: Ideal untuk tombol Save pada formulir.
+
+### Penerapan Clean Architecture pada Aplikasi Flutter:
+
+Penerapan Clean Architecture pada aplikasi Flutter melibatkan pemisahan logika aplikasi ke dalam beberapa lapisan. Setiap lapisan memiliki tanggung jawabnya sendiri, dan hubungan antara lapisan-lapisan tersebut didesain agar ketergantungan antar-lapisan minimal. Ini memudahkan pengujian, pemeliharaan, dan pengembangan lebih lanjut. Berikut adalah penjelasan lebih rinci mengenai masing-masing lapisan pada Clean Architecture:
+
+1. **Domain Layer**:
+  - Deskripsi:
+Merupakan inti dari aplikasi yang berisi aturan bisnis dan entitas.
+Tidak bergantung pada infrastruktur atau framework tertentu.
+Berfokus pada representasi bisnis dan operasi yang terkait.
+  - Komponen:
+Entities: Mendefinisikan entitas atau objek bisnis yang mewakili objek dunia nyata.
+Use Cases (Interactors): Mendefinisikan aturan bisnis dan interaksi antara entitas.
+  - Contoh:
+Jika aplikasi manajemen inventaris, entitasnya mungkin termasuk Item dan Shop.
+Use case dapat berupa menambahkan item ke dalam inventaris atau menghitung total nilai inventaris.
+2. **Data Layer**: 
+  - Deskripsi: 
+Menangani akses ke data, seperti penyimpanan lokal, API, atau database.
+Tidak bergantung pada presentasi atau bisnis logic.
+Mengimplementasikan antarmuka atau kontrak yang didefinisikan oleh Domain Layer.
+  - Komponen:  
+Repositories: Menyediakan metode untuk mengambil dan menyimpan data.
+Data Sources: Mengimplementasikan cara konkret untuk mendapatkan data (API, database, dll.).
+  - Contoh:
+Repository dapat memiliki metode untuk mendapatkan item dari database atau menyimpan item ke server.
+3. ***Presentation Layer**:
+  - Deskripsi:
+Menangani presentasi dan UI.
+Dapat berupa aplikasi Flutter, web, atau platform UI lainnya.
+Tidak mengandung bisnis logic secara langsung.
+  - Komponen:
+UI Components: Menangani tampilan dan antarmuka pengguna.
+Presenters atau ViewModels: Menyediakan model presentasi untuk tampilan.
+  - Contoh:
+Tampilan Flutter yang menampilkan daftar item dan formulir tambah item.
+ViewModel yang mengelola state dan logika presentasi.
+
+- Hubungan Antar Lapisan:
+  - Domain Layer → Data Layer: <br>
+Domain layer tidak tahu dari mana atau bagaimana data diambil atau disimpan. Ia hanya mendefinisikan kontrak (interface) untuk diimplementasikan oleh Data Layer.
+  - Data Layer → Domain Layer:  <br>
+Data Layer mengimplementasikan kontrak dari Domain Layer dan menyediakan data yang dibutuhkan oleh aplikasi.
+  - Presentation Layer → Domain Layer:  <br>
+Presentation Layer bergantung pada Domain Layer untuk aturan bisnis dan entitasnya.
+
+
+### Implementasi Checklist:
+- Menambah Halaman Baru:
+Menggunakan Navigator.push() untuk menambahkan halaman formulir tambah item baru.
+- Validasi Input pada Formulir:
+Menggunakan TextFormField untuk setiap elemen input.
+Menambahkan validasi agar tidak boleh kosong.
+- Navigasi ke Halaman Formulir Baru:
+Menambahkan tombol "Tambah Item" pada halaman utama dengan Navigator.push().
+- Popup Setelah Menekan Tombol Save:
+Menggunakan showDialog untuk menampilkan data yang diisi pada formulir.
+- Membuat Drawer:
+Menambahkan Drawer dengan dua opsi: "Halaman Utama" dan "Tambah Item".
+- Menambah Halaman Lihat Produk (Bonus):
+Membuat list untuk penyimpanan
+Membuat halaman baru untuk menampilkan daftar item yang sudah dibuat.
+Menambah tombol "Lihat Produk" pada halaman utama atau drawer untuk mengarahkan pengguna ke halaman tersebut.
+Menambahkan ke drawer
+- Mengarahkan pengguna ke halaman tersebut jika menekan tombol Lihat Item pada halaman utama atau drawer
+Menggunakan  Navigator.push untuk navigasi pengguna jika tombol yang ditekan Lihat Item
