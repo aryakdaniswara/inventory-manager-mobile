@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:inventory_manager/widgets/left_drawer.dart';
+import 'package:inventory_manager/widgets/drawer.dart';
 import 'package:inventory_manager/widgets/shop_card.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
+
   final List<ShopItem> items = [
-    ShopItem("Lihat Item", Icons.checklist, Colors.red),
-    ShopItem("Tambah Item", Icons.add_shopping_cart, Colors.green),
-    ShopItem("Logout", Icons.logout, Colors.blue),
+    ShopItem("View Items", Icons.list_alt_rounded),
+    ShopItem("Add Item", Icons.add_shopping_cart),
+    ShopItem("Logout", Icons.logout),
+  ];
+
+  // Define a list of colors
+  final List<Color> cardColors = [
+    Color.fromARGB(255, 13, 104, 52),
+    Color.fromARGB(255, 59, 104, 140),
+    Color.fromARGB(255, 53, 44, 97),
   ];
 
   @override
@@ -15,24 +23,21 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Inventory Manager',
+          'inventory_manager',
         ),
         backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
       ),
       drawer: const LeftDrawer(),
       body: SingleChildScrollView(
-        // Scrolling wrapper widget
         child: Padding(
-          padding: const EdgeInsets.all(10.0), // Set padding for the page
+          padding: const EdgeInsets.all(10.0),
           child: Column(
-            // Widget to display children vertically
             children: <Widget>[
               const Padding(
                 padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                // Text widget to display text with center alignment and appropriate style
                 child: Text(
-                  'An Inventory', // Text indicating the shop name
+                  'inventory_manager',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30,
@@ -40,18 +45,19 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              // Grid layout
               GridView.count(
-                // Container for our cards.
                 primary: true,
                 padding: const EdgeInsets.all(20),
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
                 crossAxisCount: 3,
                 shrinkWrap: true,
-                children: items.map((ShopItem item) {
-                  // Iteration for each item
-                  return ShopCard(item);
+                children: items.asMap().entries.map((entry) {
+                  final index = entry.key;
+                  final item = entry.value;
+
+                  final cardColor = cardColors[index % cardColors.length];
+                  return ShopCard(item, cardColor);
                 }).toList(),
               ),
             ],

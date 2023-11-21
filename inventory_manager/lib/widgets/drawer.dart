@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:inventory_manager/screens/menu.dart';
-import 'package:inventory_manager/screens/shoplist_form.dart';
-import 'package:inventory_manager/screens/list.dart';
-import 'package:inventory_manager/widgets/shop_card.dart';
+import 'package:inventory_manager/screens/itemform.dart';
+import 'package:inventory_manager/screens/list_item.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -19,7 +18,7 @@ class LeftDrawer extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Inventory Manager',
+                  'inventory_manager',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30,
@@ -29,10 +28,10 @@ class LeftDrawer extends StatelessWidget {
                 ),
                 Padding(padding: EdgeInsets.all(10)),
                 Text(
-                  "Simpan seluruh Item dengan Aman",
+                  "An Inventory!",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 15.0,
+                    fontSize: 15,
                     color: Colors.white,
                     fontWeight: FontWeight.normal,
                   ),
@@ -40,9 +39,10 @@ class LeftDrawer extends StatelessWidget {
               ],
             ),
           ),
+          // TODO: Bagian routing
           ListTile(
             leading: const Icon(Icons.home_outlined),
-            title: const Text('Halaman Utama'),
+            title: const Text('Home'),
             // Bagian redirection ke MyHomePage
             onTap: () {
               Navigator.pushReplacement(
@@ -54,36 +54,26 @@ class LeftDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.add_shopping_cart),
-            title: const Text('Tambah Item'),
-            // Bagian redirection ke ShopFormPage
+            title: const Text('Add Item'),
+            // Bagian redirection ke ItemFormPage
             onTap: () {
               /*
-              TODO: Buatlah routing ke ShopFormPage di sini,
-              setelah halaman ShopFormPage sudah dibuat.
+              TODO: Buatlah routing ke ItemFormPage di sini,
+              setelah halaman ItemFormPage sudah dibuat.
               */
-              Navigator.pushReplacement(
+              Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => ShopFormPage(),
-                  ));
+                      builder: (context) => const ItemFormPage()));
             },
-          ), // Bonus, tambah lihat item
+          ),
           ListTile(
-            leading: const Icon(Icons.checklist),
-            title: const Text('Lihat Item'),
-            // Bagian redirection ke ShopFormPage
+            leading: const Icon(Icons.list_alt_rounded),
+            title: const Text('View Items'),
+            // Bagian redirection ke ItemFormPage
             onTap: () {
-              /*
-              TODO: Buatlah routing ke ShopFormPage di sini,
-              setelah halaman ShopFormPage sudah dibuat.
-              */
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ListPage(itemList),
-
-                    /// BENERINN
-                  ));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ItemPage()));
             },
           ),
         ],
