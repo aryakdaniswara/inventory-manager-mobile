@@ -198,3 +198,38 @@ Presentation Layer bergantung pada Domain Layer untuk aturan bisnis dan entitasn
   - Menambahkan ke drawer
 - Mengarahkan pengguna ke halaman tersebut jika menekan tombol Lihat Item pada halaman utama atau drawer
   - Menggunakan  Navigator.push untuk navigasi pengguna jika tombol yang ditekan Lihat Item
+
+---
+### Pengambilan Data JSON tanpa Membuat Model Terlebih Dahulu:
+kita bisa melakukan pengambilan data JSON tanpa membuat model terlebih dahulu. Ini biasa dilakukan dalam kasus sederhana di mana struktur data tidak terlalu kompleks dan model tidak diperlukan. Namun, membuat model memiliki beberapa keuntungan, seperti memudahkan pengelolaan dan dokumentasi data, serta meningkatkan kejelasan kode.
+
+### Fungsi dari CookieRequest dan Alasannya Dibagikan ke Seluruh Komponen di Aplikasi Flutter:
+CookieRequest mungkin merupakan kelas atau objek yang digunakan untuk mengelola cookie dalam konteks permintaan HTTP. Cookie dapat digunakan untuk menyimpan informasi otentikasi atau sesi antara permintaan. Instance CookieRequest perlu dibagikan ke semua komponen di aplikasi Flutter agar setiap komponen memiliki akses yang konsisten ke cookie yang mungkin diperlukan untuk autentikasi atau keperluan lainnya.
+
+###  Mekanisme Pengambilan Data dari JSON hingga Ditampilkan pada Flutter:
+1. Membuat model untuk merepresentasikan data dari web service.
+2. Menggunakan package http untuk melakukan HTTP request ke web service.
+3. Mengubah respons JSON menjadi objek Flutter menggunakan json.decode.
+4. Menampilkan data yang telah dikonversi ke aplikasi menggunakan FutureBuilder.
+
+###  Mekanisme Autentikasi dari Input Data Akun pada Flutter ke Django hingga Selesainya Proses Autentikasi oleh Django dan Tampilnya Menu pada Flutter:
+1. Membuat endpoint login di Django untuk menerima data akun.
+2. Menggunakan package pbp_django_auth untuk melakukan autentikasi dari Flutter ke Django.
+3. Menampilkan menu setelah autentikasi berhasil.
+4. Implementasi fungsi logout dengan endpoint khusus di Django.
+
+###  Seluruh Widget yang Digunakan pada Tugas Ini dan Fungsinya:
+1. MyApp: Root widget, menyediakan instance CookieRequest ke seluruh aplikasi.
+2. LoginPage: Halaman untuk melakukan login dengan input username dan password.
+3. ProductPage: Halaman untuk menampilkan daftar produk dari web service Django.
+4. LeftDrawer: Widget untuk menu drawer di aplikasi.
+5. ShopCard: Widget untuk menampilkan item dalam daftar belanja.
+
+### . Cara Implementasi Checklist Secara Step-by-Step:
+1. Model Flutter: Membuat model sesuai respons JSON menggunakan Quicktype.
+2. Pengambilan Data dari Django: Menggunakan package http untuk membuat HTTP request ke Django.
+3. State Management: Menggunakan Provider untuk melakukan state management.
+4. Autentikasi Django-Flutter: Membuat endpoint login dan menggunakan package pbp_django_auth.
+5. Form Flutter dan Django Integration: Membuat form di Flutter dan mengintegrasikannya dengan Django.
+6. Logout Feature: Menambahkan fungsi logout dengan endpoint khusus di Django.
+
